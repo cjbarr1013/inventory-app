@@ -2,6 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
+const indexRouter = require('./routes/indexRouter');
+const viewRouter = require('./routes/viewRouter');
+const addRouter = require('./routes/addRouter');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -11,9 +14,9 @@ app.use(express.static(assetsPath));
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', (req, res) => {
-  res.send('hello');
-});
+app.use('/view', viewRouter);
+app.use('/add', addRouter);
+app.use('/', indexRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);
