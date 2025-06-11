@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/reset.css" />
+    <title><%= title%></title>
+  </head>
+  <body>
+    <div class="title-details-container">
+      <%- include('partials/header') %>
+      <div class="title-details">
+        <h2><%= game.name %> (<%= game.year %>)</h2>
+        <img src="<%= game.cover_art %>" />
+        <div>
+          <p>Genre(s): <%= game.genres %></p>
+          <p>Developer(s): <%= game.developers %></p>
+        </div>
+      </div>
+      <%- include('partials/footer', {projectName: 'inventory-app'}) %>
+    </div>
+  </body>
+</html>

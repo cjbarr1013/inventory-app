@@ -5,18 +5,11 @@ const developerController = require('../controllers/developerController');
 const titleController = require('../controllers/titleController');
 const viewRouter = Router();
 
-viewRouter.get('/', indexController.viewGet);
+viewRouter.get('/byGenre', genreController.byGenreGet);
 
-// viewRouter.get('/byGenre', genreController.byGenreGet);
-// viewRouter.get('/byGenre/:genre', genreController.genreTitlesGet);
+viewRouter.get('/byDeveloper', developerController.byDeveloperGet);
 
-// viewRouter.get('/byDeveloper', developerController.byDeveloperGet);
-// viewRouter.get(
-//   '/byDeveloper/:developer',
-//   developerController.developerTitlesGet
-// );
-
-// viewRouter.get('/all', titleController.allTitlesGet);
-// viewRouter.get('/all/:title', titleController.titleGet);
+viewRouter.get('/all', titleController.titlesGet);
+viewRouter.get('/all/:id', titleController.titleDetailsGet);
 
 module.exports = viewRouter;

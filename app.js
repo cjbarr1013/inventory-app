@@ -14,9 +14,22 @@ app.use(express.static(assetsPath));
 
 app.use(express.urlencoded({ extended: true }));
 
+app.locals.dropdownInfo = {
+  label: 'View',
+  links: [
+    { href: '/view/byGenre', label: 'By Genre' },
+    { href: '/view/byDeveloper', label: 'By Developer' },
+    { href: '/view/all', label: 'All Titles' },
+  ],
+};
+
 app.use('/view', viewRouter);
 app.use('/add', addRouter);
 app.use('/', indexRouter);
+
+app.use((req, res, next) => {
+  res.status(404).render('404', { title: '404 Not Found' });
+});
 
 app.use((err, req, res, next) => {
   console.error(err);

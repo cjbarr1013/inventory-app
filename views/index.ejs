@@ -3,11 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/reset.css" />
     <title><%= title%></title>
   </head>
   <body>
-    <h1>Video Game Inventory</h1>
-    <a href="/view">View Inventory</a>
-    <a href="/add">Add to Inventory</a>
+    <div class="index-container">
+      <div>
+        <h1>Video Game Inventory</h1>
+        <div class="index-links">
+          <a href="/view/byGenre">View By Genre</a>
+          <a href="/view/byDeveloper">View By Developer</a>
+          <a href="/view/all">View All Titles</a>
+          <a href="/add/title">Add New Title</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

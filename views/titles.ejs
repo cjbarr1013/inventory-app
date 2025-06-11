@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/reset.css" />
+    <title><%= title%></title>
+  </head>
+  <body>
+    <div class="titles-container">
+      <%- include('partials/header') %>
+      <div>
+        <h2><%= title %></h2>
+        <div class="titles">
+          <% games.forEach(game => { %>
+          <a href="all/<%= game.id %>" class="title">
+            <img src="<%= game.cover_art %>" />
+            <div>
+              <h3><%= game.name %> (<%= game.year %>)</h3>
+              <div>
+                <p>Genre(s): <%= game.genres %></p>
+                <p>Developer(s): <%= game.developers %></p>
+              </div>
+            </div>
+          </a>
+          <% }) %>
+        </div>
+      </div>
+      <%- include('partials/footer', {projectName: 'inventory-app'}) %>
+    </div>
+  </body>
+</html>

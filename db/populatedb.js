@@ -4,7 +4,7 @@ const { argv } = require('node:process');
 const SQL = `
 CREATE TABLE IF NOT EXISTS video_games (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  title VARCHAR ( 255 ),
+  name VARCHAR ( 255 ),
   year INTEGER,
   cover_art VARCHAR ( 2048 ),
   added TIMESTAMP DEFAULT CURRENT_TIMESTAMP

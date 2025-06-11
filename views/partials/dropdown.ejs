@@ -1,0 +1,8 @@
+<div class="dropdown">
+  <button class="dropdown-btn"><%= dropdownInfo.label %></button>
+  <div class="dropdown-content">
+    <% dropdownInfo.links.forEach(link => { %>
+    <a href="<%= link.href %>"><%= link.label %></a>
+    <% }) %>
+  </div>
+</div>
