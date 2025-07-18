@@ -1,0 +1,13 @@
+<div class="dot-menu-container">
+  <button class="dot-menu-btn"></button>
+  <ul class="dot-menu">
+    <li class="dot-menu-item">
+      <a href="/edit/<%= category %>/<%= optionId %>"><span>Edit</span></a>
+    </li>
+    <li class="dot-menu-item">
+      <form action="/delete/<%= category %>/<%= optionId %>" method="POST">
+        <button type="submit"><span>Delete</span></button>
+      </form>
+    </li>
+  </ul>
+</div>

@@ -79,12 +79,36 @@ footer img {
 }
 
 button {
+  font-family: inherit;
+  font-size: 100%;
   cursor: pointer;
 }
 
 fieldset {
   border: none;
   padding: 0;
+}
+
+fieldset > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.25rem;
+}
+
+fieldset > div > div {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: aliceblue;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+fieldset input {
+  margin-right: 0.25rem;
 }
 
 .primary-padding {
@@ -127,8 +151,7 @@ fieldset {
   width: 80%;
 }
 
-.index-links > a,
-.options > a {
+.index-links > a {
   display: inline-block;
   padding: 0.5rem 1rem;
   background: aliceblue;
@@ -170,6 +193,127 @@ fieldset {
   gap: 0.25rem;
 }
 
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.25rem 0.5rem 0.75rem;
+  background: aliceblue;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+}
+
+.option > a {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dot-menu-container {
+  display: flex;
+  position: relative;
+}
+
+.dot-menu-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  /* Could also use vertical dots icon here */
+  background: url(icons/dots-vertical.svg) no-repeat center;
+  border: none;
+  border-radius: 0.25rem;
+  /* Can adjust color of menu button if needed */
+  /* filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(327deg) brightness(96%) contrast(104%); */
+  opacity: 0.5;
+  position: relative;
+  transition: 0.2s;
+}
+
+.dot-menu-btn:hover {
+  background-color: #007bff;
+  /* Adjust filter to match page-detail-color */
+  /* filter: invert(20%) sepia(83%) saturate(6817%) hue-rotate(233deg) brightness(88%) contrast(97%); */
+  opacity: 1;
+}
+
+.dot-menu-btn:active {
+  background-color: #007bff;
+}
+
+.dot-menu {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  background-color: aliceblue;
+  border: 0.1rem solid #007bff;
+  border-radius: 5%;
+  box-shadow: 0rem 0rem 0.3rem 0.1rem #007bff;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  list-style: none;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.dot-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot-menu-item:hover {
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+.dot-menu-item > a,
+.dot-menu-item button {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+.dot-menu-item > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dot-menu-item button {
+  border: none;
+  background-color: transparent;
+}
+
+.dot-menu-item span:before {
+  display: inline-block;
+  /* Width and height should match font size */
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-bottom: 3px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  /* Adjust filter to match font color */
+  /* filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(327deg) brightness(96%) contrast(104%); */
+}
+
+.dot-menu-item:first-child span:before {
+  /* Change icon as needed */
+  content: url(icons/edit.svg);
+}
+
+.dot-menu-item:last-child span:before {
+  /* Change icon as needed */
+  content: url(icons/delete.svg);
+}
+
+.visible {
+  visibility: visible;
+}
+
 .titles {
   display: flex;
   flex-direction: column;
@@ -177,6 +321,15 @@ fieldset {
 }
 
 .title {
+  display: flex;
+}
+
+.title > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.title > a {
   display: flex;
   gap: 1rem;
   width: 100%;
@@ -188,14 +341,14 @@ fieldset {
   text-decoration: none;
 }
 
-.title > img {
+.title > a > img {
   height: 125px;
   aspect-ratio: var(--cover-art-ar);
   object-fit: cover;
   border-radius: 4px;
 }
 
-.title > div {
+.title > a > div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -211,6 +364,15 @@ fieldset {
   aspect-ratio: var(--cover-art-ar);
   object-fit: cover;
   border-radius: 4px;
+}
+
+.title-form,
+.option-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
 }
 
 .dropdown {

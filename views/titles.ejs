@@ -11,19 +11,28 @@
     <div class="titles-container">
       <%- include('partials/header') %>
       <div>
+        <a href="<%= backPath %>">&lt;&lt; <%= backMsg %></a>
         <h2><%= title %></h2>
         <div class="titles">
           <% games.forEach(game => { %>
-          <a href="all/<%= game.id %>" class="title">
-            <img src="<%= game.cover_art %>" />
-            <div>
-              <h3><%= game.name %> (<%= game.year %>)</h3>
+          <div class="title">
+            <a href="all/<%= game.id %>">
+              <img src="<%= game.cover_art %>" />
               <div>
-                <p>Genre(s): <%= game.genres %></p>
-                <p>Developer(s): <%= game.developers %></p>
+                <h3><%= game.name %> (<%= game.year %>)</h3>
+                <div>
+                  <p>Genre(s): <%= game.genres %></p>
+                  <p>Developer(s): <%= game.developers %></p>
+                </div>
               </div>
+            </a>
+            <div>
+              <a href="/edit/title/<%= game.id %>"><span>Edit</span></a>
+              <form action="/delete/title/<%= game.id %>" method="POST">
+                <button type="submit"><span>Delete</span></button>
+              </form>
             </div>
-          </a>
+          </div>
           <% }) %>
         </div>
       </div>

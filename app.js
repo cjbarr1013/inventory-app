@@ -5,6 +5,8 @@ const path = require('path');
 const indexRouter = require('./routes/indexRouter');
 const viewRouter = require('./routes/viewRouter');
 const addRouter = require('./routes/addRouter');
+const editRouter = require('./routes/editRouter');
+const deleteRouter = require('./routes/deleteRouter');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,6 +27,8 @@ app.locals.dropdownInfo = {
 
 app.use('/view', viewRouter);
 app.use('/add', addRouter);
+app.use('/edit', editRouter);
+app.use('/delete', deleteRouter);
 app.use('/', indexRouter);
 
 app.use((req, res, next) => {

@@ -16,6 +16,12 @@
         <div>
           <p>Genre(s): <%= game.genres %></p>
           <p>Developer(s): <%= game.developers %></p>
+          <div>
+            <a href="/edit/title/<%= game.id %>"><span>Edit</span></a>
+            <form action="/delete/title/<%= game.id %>" method="POST">
+              <button type="submit"><span>Delete</span></button>
+            </form>
+          </div>
         </div>
       </div>
       <%- include('partials/footer', {projectName: 'inventory-app'}) %>

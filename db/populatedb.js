@@ -21,18 +21,18 @@ CREATE TABLE IF NOT EXISTS developers (
 );
 
 CREATE TABLE IF NOT EXISTS video_game_genres (
-  video_game_id INTEGER REFERENCES video_games(id),
-  genre_id INTEGER REFERENCES genres(id),
+  video_game_id INTEGER REFERENCES video_games(id) ON DELETE CASCADE,
+  genre_id INTEGER REFERENCES genres(id) ON DELETE CASCADE,
   PRIMARY KEY (video_game_id, genre_id)
 );
 
 CREATE TABLE IF NOT EXISTS video_game_developers (
-  video_game_id INTEGER REFERENCES video_games(id),
-  developer_id INTEGER REFERENCES developers(id),
+  video_game_id INTEGER REFERENCES video_games(id) ON DELETE CASCADE,
+  developer_id INTEGER REFERENCES developers(id) ON DELETE CASCADE,
   PRIMARY KEY (video_game_id, developer_id)
 );
 
-INSERT INTO video_games (title, year, cover_art)
+INSERT INTO video_games (name, year, cover_art)
 VALUES
   ('Stardew Valley', 2016, 'https://upload.wikimedia.org/wikipedia/en/f/fd/Logo_of_Stardew_Valley.png'),
   ('Red Dead Redemption II', 2018, 'https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg'),

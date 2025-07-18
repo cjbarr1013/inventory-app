@@ -1,0 +1,15 @@
+<form action="/add/<%= option %>" method="POST" class="option-form">
+  <div>
+    <label for="<%= inputId %>"
+      >Insert new <%= option %>. If multiple are needed, separate with a
+      comma.</label
+    >
+    <input
+      type="text"
+      id="<%= inputId %>"
+      name="<%= inputId %>"
+      value="<%= oldName %>"
+    />
+  </div>
+  <button type="submit">Submit</button>
+</form>

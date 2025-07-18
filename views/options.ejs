@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/reset.css" />
+    <script src="/dotMenu.js" defer></script>
     <title><%= title%></title>
   </head>
   <body>
@@ -14,11 +15,15 @@
         <h2>Please select a <%= category %>:</h2>
         <div class="options">
           <% options.forEach(option => { %>
-          <a href="all?<%= option.id ? category + '=' + option.id : '' %>">
-            <%= option.name %>
-          </a>
+          <div class="option">
+            <a href="all?<%= option.id ? category + '=' + option.id : '' %>">
+              <%= option.name %>
+            </a>
+            <%- include('partials/dotMenu', {category, optionId: option.id}) %>
+          </div>
           <% }) %>
         </div>
+        <a href="/add/<%= category %>">Add new <%= category %></a>
       </div>
       <%- include('partials/footer', {projectName: 'inventory-app'}) %>
     </div>

@@ -1,0 +1,19 @@
+<form
+  action="/edit/<%= option %>/<%= optionId %>"
+  method="POST"
+  class="option-form"
+>
+  <div>
+    <label for="<%= option %>"
+      >Please edit the <%= option %> name. Additional <%= option %>s cannot be
+      created here.</label
+    >
+    <input
+      type="text"
+      id="<%= option %>"
+      name="<%= option %>"
+      value="<%= oldName %>"
+    />
+  </div>
+  <button type="submit">Submit</button>
+</form>
