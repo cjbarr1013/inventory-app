@@ -1,4 +1,5 @@
 <form action="/edit/title/<%= game.id %>" method="POST" class="title-form">
+  <%- include('errors') %>
   <div>
     <label for="name">Name:</label>
     <input
@@ -24,7 +25,7 @@
         <% }) %>
       </div>
     </fieldset>
-    <div>
+    <div class="cat-input">
       <label for="newGenre"
         >Insert new genre, if needed. If multiple are needed, separate with a
         comma.</label
@@ -48,7 +49,7 @@
         <% }) %>
       </div>
     </fieldset>
-    <div>
+    <div class="cat-input">
       <label for="newDeveloper"
         >Insert new developer, if needed. If multiple are needed, separate with
         a comma.</label
@@ -79,5 +80,8 @@
       required
     />
   </div>
-  <button type="submit">Submit</button>
+  <div class="form-btns">
+    <a href="<%= cancelUrl %>">Cancel</a>
+    <button type="submit">Submit</button>
+  </div>
 </form>

@@ -53,6 +53,7 @@ async function addGenreGet(req, res) {
     option: 'genre',
     inputId: 'newGenre',
     oldName: '',
+    cancelUrl: '/view/byGenre',
   });
 }
 
@@ -66,6 +67,7 @@ async function addGenrePost(req, res) {
       option: 'genre',
       inputId: 'newGenre',
       oldName: newGenre,
+      cancelUrl: '/view/byGenre',
       errors: errors.array(),
     });
   }
@@ -86,6 +88,7 @@ async function editGenreGet(req, res) {
     option: 'genre',
     optionId: id,
     oldName,
+    cancelUrl: '/view/byGenre',
   });
 }
 
@@ -101,6 +104,7 @@ async function editGenrePost(req, res) {
       option: 'genre',
       optionId: id,
       oldName: genreObj.name,
+      cancelUrl: '/view/byGenre',
       errors: errors.array(),
     });
   }

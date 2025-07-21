@@ -3,6 +3,7 @@
   method="POST"
   class="option-form"
 >
+  <%- include('errors') %>
   <div>
     <label for="<%= option %>"
       >Please edit the <%= option %> name. Additional <%= option %>s cannot be
@@ -15,5 +16,8 @@
       value="<%= oldName %>"
     />
   </div>
-  <button type="submit">Submit</button>
+  <div class="form-btns">
+    <a href="<%= cancelUrl %>">Cancel</a>
+    <button type="submit">Submit</button>
+  </div>
 </form>

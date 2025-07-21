@@ -11,17 +11,31 @@
     <div class="title-details-container">
       <%- include('partials/header') %>
       <div class="title-details">
-        <h2><%= game.name %> (<%= game.year %>)</h2>
+        <h2><%= game.name %> <span>(<%= game.year %>)</span></h2>
         <img src="<%= game.cover_art %>" />
-        <div>
-          <p>Genre(s): <%= game.genres %></p>
-          <p>Developer(s): <%= game.developers %></p>
+        <div class="genres-and-devs">
           <div>
-            <a href="/edit/title/<%= game.id %>"><span>Edit</span></a>
-            <form action="/delete/title/<%= game.id %>" method="POST">
-              <button type="submit"><span>Delete</span></button>
-            </form>
+            <h4>Genre(s):</h4>
+            <ul>
+              <% game.genres.forEach(genre => { %>
+              <li><%= genre %></li>
+              <% }) %>
+            </ul>
           </div>
+          <div>
+            <h4>Developer(s):</h4>
+            <ul>
+              <% game.developers.forEach(developer => { %>
+              <li><%= developer %></li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+        <div class="edit-links">
+          <a href="/edit/title/<%= game.id %>"><span>Edit</span></a>
+          <form action="/delete/title/<%= game.id %>" method="POST">
+            <button type="submit"><span>Delete</span></button>
+          </form>
         </div>
       </div>
       <%- include('partials/footer', {projectName: 'inventory-app'}) %>

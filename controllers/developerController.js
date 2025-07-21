@@ -46,13 +46,14 @@ async function byDeveloperGet(req, res) {
   });
 }
 
-async function addDeveloperGet(rep, res) {
+async function addDeveloperGet(req, res) {
   res.render('modifyItem', {
     title: 'Add New Developer',
     form: 'addOptionForm',
     option: 'developer',
     inputId: 'newDeveloper',
     oldName: '',
+    cancelUrl: '/view/byDeveloper',
   });
 }
 
@@ -66,6 +67,7 @@ async function addDeveloperPost(req, res) {
       option: 'developer',
       inputId: 'newDeveloper',
       oldName: newDeveloper,
+      cancelUrl: '/view/byDeveloper',
       errors: errors.array(),
     });
   }
@@ -86,6 +88,7 @@ async function editDeveloperGet(req, res) {
     option: 'developer',
     optionId: id,
     oldName,
+    cancelUrl: '/view/byDeveloper',
   });
 }
 
@@ -101,6 +104,7 @@ async function editDeveloperPost(req, res) {
       option: 'developer',
       optionId: id,
       oldName: developerObj.name,
+      cancelUrl: '/view/byDeveloper',
       errors: errors.array(),
     });
   }

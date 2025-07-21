@@ -23,7 +23,9 @@
           </div>
           <% }) %>
         </div>
-        <a href="/add/<%= category %>">Add new <%= category %></a>
+        <a class="add-category-link" href="/add/<%= category %>"
+          >+ Add new <%= category %></a
+        >
       </div>
       <%- include('partials/footer', {projectName: 'inventory-app'}) %>
     </div>

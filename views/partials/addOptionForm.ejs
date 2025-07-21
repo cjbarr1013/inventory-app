@@ -1,4 +1,5 @@
 <form action="/add/<%= option %>" method="POST" class="option-form">
+  <%- include('errors') %>
   <div>
     <label for="<%= inputId %>"
       >Insert new <%= option %>. If multiple are needed, separate with a
@@ -11,5 +12,8 @@
       value="<%= oldName %>"
     />
   </div>
-  <button type="submit">Submit</button>
+  <div class="form-btns">
+    <a href="<%= cancelUrl %>">Cancel</a>
+    <button type="submit">Submit</button>
+  </div>
 </form>
