@@ -12,7 +12,7 @@
       <%- include('partials/header') %>
       <div class="title-details">
         <h2><%= game.name %> <span>(<%= game.year %>)</span></h2>
-        <img src="<%= game.cover_art %>" />
+        <img src="<%= game.cover_art  || '/images/placeholder.png' %>" />
         <div class="genres-and-devs">
           <div>
             <h4>Genre(s):</h4>
@@ -32,9 +32,13 @@
           </div>
         </div>
         <div class="edit-links">
-          <a href="/edit/title/<%= game.id %>"><span>Edit</span></a>
+          <a class="btn-animation" href="/edit/title/<%= game.id %>"
+            ><span>Edit</span></a
+          >
           <form action="/delete/title/<%= game.id %>" method="POST">
-            <button type="submit"><span>Delete</span></button>
+            <button class="btn-animation" type="submit">
+              <span>Delete</span>
+            </button>
           </form>
         </div>
       </div>

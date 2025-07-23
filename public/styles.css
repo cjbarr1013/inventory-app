@@ -9,15 +9,26 @@
   --headerFont: 'Orbitron', serif;
   --bodyFont: Roboto, Helvetica, Arial, sans-serif;
 
-  --primaryColor: #e1f1ff;
+  /* --primaryColor: #e1f1ff;
   --secondaryColor: #f1f8ff;
   --primaryBtnColor: #007bff;
   --secondaryBtnColor: #f1f8ff;
   --boxShadowColor: rgb(60, 60, 60);
   --lightFontColor: white;
-  --darkFontColor: rgb(29, 29, 29);
+  --darkFontColor: rgb(40, 40, 40); */
+
+  --color1: #028090;
+  --color2: #469ea7;
+  --color3: #8bbdbe;
+  --btnColor1: #114b5f;
+  --btnColor2: #e8edeb;
+  --boxShadowColor: rgb(40, 40, 40);
+  --lightFontColor: white;
+  --darkFontColor: rgb(40, 40, 40);
 
   --coverArtAR: calc(268 / 372);
+
+  --primaryPadding: 2rem;
 }
 
 html,
@@ -31,12 +42,19 @@ html {
   color: var(--darkFontColor);
 }
 
+body {
+  background-color: var(--color3);
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
   padding: 1rem;
-  box-shadow: 0 0 0.5rem black;
+  color: var(--lightFontColor);
+  background-color: var(--color1);
+  box-shadow: 0 0 0.5rem var(--boxShadowColor);
 }
 
 header > a {
@@ -56,8 +74,8 @@ header > div {
 header > div > a {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: var(--primaryBtnColor);
-  color: white;
+  background-color: var(--btnColor1);
+  color: var(--lightFontColor);
   border: none;
   border-radius: 4px;
   text-decoration: none;
@@ -71,7 +89,9 @@ footer {
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  box-shadow: 0 0 0.5rem black;
+  color: var(--lightFontColor);
+  background-color: var(--color1);
+  box-shadow: 0 0 0.5rem var(--boxShadowColor);
   z-index: 999;
 }
 
@@ -79,7 +99,7 @@ footer a {
   display: flex;
   gap: 0.2rem;
   font-weight: bold;
-  color: black;
+  color: var(--lightFontColor);
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
@@ -95,6 +115,8 @@ footer a:hover img {
 
 footer img {
   height: 1.5rem;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(186deg)
+    brightness(103%) contrast(103%);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -138,9 +160,9 @@ fieldset > div {
 fieldset > div > div {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: aliceblue;
-  color: black;
-  border: 1px solid black;
+  background: var(--btnColor2);
+  color: var(--darkFontColor);
+  border: 1px solid var(--btnColor1);
   border-radius: 4px;
   text-align: center;
   white-space: nowrap;
@@ -148,10 +170,6 @@ fieldset > div > div {
 
 fieldset input {
   margin-right: 0.25rem;
-}
-
-.primary-padding {
-  padding: 2rem;
 }
 
 .index-container {
@@ -183,15 +201,15 @@ fieldset input {
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  width: 80%;
+  width: 60%;
 }
 
 .index-links > a {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: var(--secondaryBtnColor);
-  color: black;
-  border: 1px solid black;
+  background-color: var(--btnColor2);
+  color: var(--darkFontColor);
+  border: 1px solid var(--btnColor1);
   border-radius: 4px;
   text-decoration: none;
   text-align: center;
@@ -199,9 +217,23 @@ fieldset input {
 }
 
 .index-links > a:last-child {
-  background: var(--primaryBtnColor);
-  color: white;
+  background-color: var(--btnColor1);
+  color: var(--lightFontColor);
   border: none;
+}
+
+.add-btn:before {
+  content: url(icons/plus.svg);
+  display: inline-block;
+  /* Width and height should match font size */
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-bottom: 3px;
+  margin-right: 0.25rem;
+  vertical-align: middle;
+  /* Adjust filter to match font color */
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(186deg)
+    brightness(103%) contrast(103%);
 }
 
 .options-container,
@@ -219,7 +251,7 @@ fieldset input {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem;
+  padding: var(--primaryPadding);
 }
 
 .options {
@@ -234,13 +266,19 @@ fieldset input {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.25rem 0.5rem 0.75rem;
-  background: var(--secondaryColor);
-  border: 1px solid black;
+  background-color: var(--btnColor2);
+  color: var(--darkFontColor);
+  border: 1px solid var(--btnColor1);
   border-radius: 0.25rem;
+  transition: all 0.1s ease-in;
+}
+
+.option:hover {
+  background: var(--color2);
 }
 
 .option > a {
-  color: black;
+  color: var(--darkFontColor);
   text-decoration: none;
   text-align: center;
   white-space: nowrap;
@@ -249,8 +287,8 @@ fieldset input {
 .add-category-link {
   align-self: flex-start;
   padding: 0.5rem 1rem;
-  background: var(--primaryBtnColor);
-  color: white;
+  background: var(--btnColor1);
+  color: var(--lightFontColor);
   border: none;
   border-radius: 4px;
   text-decoration: none;
@@ -274,18 +312,18 @@ fieldset input {
   /* filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(327deg) brightness(96%) contrast(104%); */
   opacity: 0.5;
   position: relative;
-  transition: 0.2s;
+  transition: all 0.1s ease-in;
 }
 
 .dot-menu-btn:hover {
-  background-color: var(--primaryColor);
+  background-color: var(--color1);
   /* Adjust filter to match page-detail-color */
   /* filter: invert(20%) sepia(83%) saturate(6817%) hue-rotate(233deg) brightness(88%) contrast(97%); */
   opacity: 1;
 }
 
 .dot-menu-btn:active {
-  background-color: var(--primaryColor);
+  background-color: var(--color1);
 }
 
 .dot-menu {
@@ -294,16 +332,23 @@ fieldset input {
   margin: 0;
   padding: 0;
   width: fit-content;
-  background-color: white;
-  border: 0.1rem solid var(--primaryColor);
+  background-color: var(--btnColor2);
+  border: 1px solid var(--btnColor1);
   border-radius: 0.25rem;
   position: absolute;
   top: 0.75rem;
-  left: 0.75rem;
   z-index: 1000;
   list-style: none;
   overflow: hidden;
   visibility: hidden;
+}
+
+.menu-right {
+  left: 0.75rem;
+}
+
+.menu-left {
+  right: 0.75rem;
 }
 
 .dot-menu-item {
@@ -313,7 +358,7 @@ fieldset input {
 }
 
 .dot-menu-item:hover {
-  background-color: var(--primaryColor);
+  background-color: var(--color2);
   cursor: pointer;
 }
 
@@ -376,15 +421,16 @@ fieldset input {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--secondaryColor);
-  color: black;
-  border: 1px solid black;
+  background-color: var(--btnColor2);
+  color: var(--darkFontColor);
+  border: 1px solid var(--color1);
   border-radius: 4px;
   text-decoration: none;
-  transition: box-shadow 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .title-card:hover {
+  transform: scale(1.02);
   box-shadow: 4px 4px 4px var(--boxShadowColor);
 }
 
@@ -392,6 +438,7 @@ fieldset input {
   height: 350px;
   aspect-ratio: var(--coverArtAR);
   object-fit: cover;
+  border: 1px solid var(--color1);
   border-radius: 4px;
 }
 
@@ -428,7 +475,7 @@ fieldset input {
 }
 
 .back-link {
-  color: black;
+  color: var(--darkFontColor);
   text-decoration: none;
 }
 
@@ -436,31 +483,38 @@ fieldset input {
   text-decoration: underline;
 }
 
+.title-details-container {
+  max-height: 100vh;
+}
+
 .title-details {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   align-items: center;
+  overflow: auto;
 }
 
 .title-details > img {
   flex: 1;
+  min-height: 400px;
   aspect-ratio: var(--coverArtAR);
   object-fit: cover;
+  border: 1px solid var(--color1);
   border-radius: 4px;
 }
 
 .title-details > .genres-and-devs {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
 .title-details > .genres-and-devs > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.25rem;
-  width: 180px;
+  text-align: center;
+}
+
+.title-details > h2 {
   text-align: center;
 }
 
@@ -482,9 +536,9 @@ fieldset input {
 .title-details > .edit-links > a {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: var(--secondaryBtnColor);
-  color: inherit;
-  border: 1px solid black;
+  background-color: var(--btnColor2);
+  color: var(--darkFontColor);
+  border: 1px solid var(--btnColor1);
   border-radius: 4px;
   text-decoration: none;
   text-align: center;
@@ -494,8 +548,8 @@ fieldset input {
 .title-details > .edit-links button {
   padding: 0.5rem 1rem;
   height: 100%;
-  background: red;
-  color: white;
+  background-color: red;
+  color: var(--lightFontColor);
   border: none;
   border-radius: 4px;
   text-align: center;
@@ -513,7 +567,7 @@ fieldset input {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem;
+  padding: var(--primaryPadding);
 }
 
 .title-form > div:not(:last-child),
@@ -537,9 +591,9 @@ fieldset input {
 .form-btns > a {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: var(--secondaryBtnColor);
-  color: inherit;
-  border: 1px solid black;
+  background: var(--btnColor2);
+  color: var(--darkFontColor);
+  border: 1px solid var(--btnColor1);
   border-radius: 4px;
   text-decoration: none;
   text-align: center;
@@ -548,8 +602,8 @@ fieldset input {
 
 .form-btns > button {
   padding: 0.5rem 1rem;
-  background: var(--primaryBtnColor);
-  color: white;
+  background: var(--btnColor1);
+  color: var(--lightFontColor);
   border: none;
   border-radius: 4px;
   text-align: center;
@@ -580,10 +634,10 @@ fieldset input {
 
 .dropdown-btn {
   padding: 0.5rem 4rem;
-  border: none;
+  border: 1px solid var(--btnColor1);
   border-radius: 4px;
   background: url(icons/chevron-down.svg) no-repeat;
-  background-color: var(--secondaryBtnColor);
+  background-color: var(--btnColor2);
   background-position: right 0.5rem top 50%;
   background-size: 1.5rem;
 }
@@ -591,8 +645,8 @@ fieldset input {
 .dropdown-content {
   display: none;
   width: 100%;
-  background-color: white;
-  border: 0.1rem solid var(--secondaryBtnColor);
+  background-color: var(--btnColor2);
+  border: 1px solid var(--btnColor1);
   border-radius: 0.25rem;
   position: absolute;
   z-index: 1;
@@ -604,11 +658,35 @@ fieldset input {
 }
 
 .dropdown-content a {
-  color: black;
+  color: var(--darkFontColor);
   padding: 0.5rem 1rem;
   text-decoration: none;
 }
 
 .dropdown-content a:hover {
-  background-color: var(--secondaryBtnColor);
+  background-color: var(--color2);
+}
+
+.btn-animation {
+  transition: all 0.2s ease;
+}
+
+.btn-animation:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 2px var(--boxShadowColor);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --primaryPadding: 2rem 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header > a {
+    text-align: center;
+  }
 }

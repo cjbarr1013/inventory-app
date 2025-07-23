@@ -67,7 +67,7 @@ async function addTitleGet(req, res) {
     selectedDevelopers: [],
     oldYear: new Date().getFullYear(),
     oldCoverArt: '',
-    cancelUrl: '/view/all',
+    cancelUrl: req.get('referer') || '/',
   });
 }
 
@@ -114,7 +114,7 @@ async function editTitleGet(req, res) {
     game,
     developers,
     genres,
-    cancelUrl: '/view/all',
+    cancelUrl: req.get('referer') || '/',
   });
 }
 
@@ -138,7 +138,7 @@ async function editTitlePost(req, res) {
       },
       developers,
       genres,
-      cancelUrl: '/view/all',
+      cancelUrl: `/view/all/${id}`,
       errors: errors.array(),
     });
   }

@@ -13,9 +13,9 @@
       <div>
         <h2><%= title %></h2>
         <div class="titles">
-          <% games.forEach(game => { %>
+          <% if (games.length > 0) { %> <% games.forEach(game => { %>
           <a class="title-card" href="all/<%= game.id %>">
-            <img src="<%= game.cover_art %>" />
+            <img src="<%= game.cover_art || '/images/placeholder.png' %>" />
             <div class="title-card-details">
               <h3><%= game.name %> <span>(<%= game.year %>)</span></h3>
               <div>
@@ -38,7 +38,9 @@
               </div>
             </div>
           </a>
-          <% }) %>
+          <% }) %> <% } else { %>
+          <p>No titles to display.</p>
+          <% } %>
         </div>
         <a class="back-link" href="<%= backPath %>">&lt;&lt; <%= backMsg %></a>
       </div>
