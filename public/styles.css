@@ -43,7 +43,7 @@ html {
 }
 
 body {
-  background-color: var(--color3);
+  background-color: var(--color1);
 }
 
 header {
@@ -55,6 +55,7 @@ header {
   color: var(--lightFontColor);
   background-color: var(--color1);
   box-shadow: 0 0 0.5rem var(--boxShadowColor);
+  z-index: 100;
 }
 
 header > a {
@@ -139,6 +140,10 @@ button {
   font-family: inherit;
   font-size: 100%;
   cursor: pointer;
+}
+
+form {
+  background-color: var(--color3);
 }
 
 input {
@@ -252,6 +257,7 @@ fieldset input {
   flex-direction: column;
   gap: 1rem;
   padding: var(--primaryPadding);
+  background-color: var(--color3);
 }
 
 .options {
@@ -483,18 +489,14 @@ fieldset input {
   text-decoration: underline;
 }
 
-.title-details-container {
-  max-height: 100vh;
-}
-
 .title-details {
   align-items: center;
-  overflow: auto;
 }
 
 .title-details > img {
-  flex: 1;
-  min-height: 400px;
+  flex: 1 1 350px;
+  min-height: 350px;
+  max-height: 1000px;
   aspect-ratio: var(--coverArtAR);
   object-fit: cover;
   border: 1px solid var(--color1);
