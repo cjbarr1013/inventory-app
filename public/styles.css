@@ -381,6 +381,10 @@ fieldset input {
   text-decoration: none;
 }
 
+.dot-menu-item form {
+  background-color: inherit;
+}
+
 .dot-menu-item button {
   border: none;
   background-color: transparent;
